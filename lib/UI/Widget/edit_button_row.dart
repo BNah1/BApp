@@ -3,6 +3,7 @@ import 'package:bapp/UI/Widget/edit_selected_contain/canvas_selected_contain.dar
 import 'package:flutter/material.dart';
 
 import 'edit_selected_contain/filter_selected_contain.dart';
+import 'edit_selected_contain/text_selected_contain.dart';
 
 class EditButtonRow extends StatefulWidget {
   const EditButtonRow({super.key});
@@ -68,7 +69,7 @@ class _EditButtonRowState extends State<EditButtonRow> {
       case EnumEdit.effect:
         return const Text('effect',);
       case EnumEdit.text:
-        return const Text('text',);
+        return const TextSelectedContain();
       case EnumEdit.frame:
         return const Text('frame',);
       case EnumEdit.none:

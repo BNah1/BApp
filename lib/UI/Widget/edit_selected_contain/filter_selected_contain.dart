@@ -2,6 +2,8 @@ import 'package:bapp/UI/Widget/slider_edit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../model/Test.dart';
+
 class FilterSelectedContain extends StatefulWidget {
   const FilterSelectedContain({super.key});
 
@@ -16,10 +18,10 @@ class _FilterSelectedContainState extends State<FilterSelectedContain> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SliderEdit(title: 'Brightness'),
-          SliderEdit(title: 'Brightness'),
-          SliderEdit(title: 'Brightness'),
-          SliderEdit(title: 'Brightness'),
+          SliderEdit(title: 'Brightness', test: Test(0)),
+          SliderEdit(title: 'Brightness', test: Test(0)),
+          SliderEdit(title: 'Brightness', test: Test(0)),
+          SliderEdit(title: 'Brightness', test: Test(0)),
         ],
       ),
     );

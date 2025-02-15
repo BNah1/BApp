@@ -1,4 +1,3 @@
-import 'package:bapp/UI/Screen/edit_screen.dart';
 import 'package:bapp/UI/Widget/image_show/image_list_row.dart';
 import 'package:bapp/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class SelectImageScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 7),
         child: Column(
           children: [
-            SizedBox(height: 180,),
+            const SizedBox(height: 180,),
 
             Expanded(
               child: Column(

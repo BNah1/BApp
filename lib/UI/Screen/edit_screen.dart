@@ -14,11 +14,12 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreen extends State<EditScreen> {
-  late final String path;
+  late File imageFile;
 
 @override
   void didChangeDependencies() {
-  path = (ModalRoute.of(context)?.settings.arguments as String);
+  String path = (ModalRoute.of(context)?.settings.arguments as String);
+  imageFile = File(path);
     super.didChangeDependencies();
   }
 
@@ -41,8 +42,8 @@ class _EditScreen extends State<EditScreen> {
         child: Column(
           children: [
             Expanded(child:
-            path.isNotEmpty
-                ? Image.file(File(path),fit: BoxFit.cover) // Hiển thị ảnh
+            imageFile.existsSync()
+                ? Image.file(imageFile,fit: BoxFit.cover) // Hiển thị ảnh
                 : const Text("Không có ảnh nào được chọn"),),
             const EditButtonRow(),
             const SizedBox(height: 30,),
