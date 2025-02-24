@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CanvasSelectedContain extends StatefulWidget {
@@ -16,13 +15,13 @@ class _CanvasSelectedContainState extends State<CanvasSelectedContain> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          _BoxWidget(1, 1, EnumSelect.icon),
-          _BoxWidget(1, 1, EnumSelect.text),
-          _BoxWidget(4, 5, EnumSelect.text),
-          _BoxWidget(16, 9, EnumSelect.text),
-          _BoxWidget(9, 16, EnumSelect.text),
-          _BoxWidget(3, 4, EnumSelect.text),
-          _BoxWidget(3, 1, EnumSelect.none),
+          _boxWidget(1, 1, EnumSelect.icon),
+          _boxWidget(1, 1, EnumSelect.text),
+          _boxWidget(4, 5, EnumSelect.text),
+          _boxWidget(16, 9, EnumSelect.text),
+          _boxWidget(9, 16, EnumSelect.text),
+          _boxWidget(3, 4, EnumSelect.text),
+          _boxWidget(3, 1, EnumSelect.none),
         ],
       ),
     );
@@ -31,7 +30,7 @@ class _CanvasSelectedContainState extends State<CanvasSelectedContain> {
 
 enum EnumSelect { icon, text, none }
 
-Widget _BoxWidget(int rateX, int rateY, EnumSelect select) {
+Widget _boxWidget(int rateX, int rateY, EnumSelect select) {
   double height = 60.0;
   double width = height * (rateX / rateY);
   if (width > 150.0) {
@@ -48,11 +47,12 @@ Widget _BoxWidget(int rateX, int rateY, EnumSelect select) {
     ),
     height: height,
     width: width,
-    child: Center(child: _EnumWidget(select, rateX, rateY)),
+    child: Center(child: _enumWidget(select, rateX, rateY)),
   );
 }
 
-Widget _EnumWidget(EnumSelect select, int rateX, int rateY) {
+
+Widget _enumWidget(EnumSelect select, int rateX, int rateY) {
   switch (select) {
     case EnumSelect.text:
       return Text("$rateX:$rateY");

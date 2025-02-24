@@ -1,9 +1,9 @@
 import 'package:bapp/UI/Widget/edit_selected_contain/canvas_selected_contain.dart';
 import 'package:flutter/material.dart';
 
-import '../../constant/constant.dart';
-import 'edit_selected_contain/filter_selected_contain.dart';
-import 'edit_selected_contain/text_selected_contain.dart';
+import 'package:bapp/UI/Widget/edit_selected_contain/filter_selected_contain.dart';
+import 'package:bapp/UI/Widget/edit_selected_contain/text_selected_contain.dart';
+import 'package:bapp/constant/constant.dart';
 
 class EditButtonRow extends StatefulWidget {
   const EditButtonRow({super.key});

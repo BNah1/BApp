@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../model/Test.dart';
-import '../../slider_edit.dart';
 
 class TextSettingContain extends StatefulWidget {
   const TextSettingContain({super.key});
@@ -22,24 +19,25 @@ class _TextSettingContainState extends State<TextSettingContain> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _FontContain(
+              _fontContain(
                   Icons.format_align_left_rounded, _EnumSelected.set1, () {}),
-              _FontContain(
+              _fontContain(
                   Icons.format_align_center_sharp, _EnumSelected.set2, () {}),
-              _FontContain(
+              _fontContain(
                   Icons.format_align_right_rounded, _EnumSelected.set3, () {}),
             ],
           ),
-          const SizedBox(height: 10,),
-          SliderEdit(title: 'T', test: Test(0),),
-          SliderEdit(title: "|||", test: Test(0)),
-      
+          const SizedBox(
+            height: 10,
+          ),
+          // SliderEdit(title: 'T', test: Test(0),),
+          // SliderEdit(title: "|||", test: Test(0)),
         ],
       ),
     );
   }
 
-  Widget _FontContain(
+  Widget _fontContain(
     IconData icon,
     _EnumSelected selected,
     Function tap,
