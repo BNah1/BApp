@@ -32,7 +32,7 @@ class _ImageGridviewState extends State<ImageListRow> {
           child: FutureBuilder<List<String>>(
               future: getImgage(),
               builder: (context, snapshot) {
-                return CheckSnapshot(
+                return checkSnapshot(
                     snapshot,
                         (data) =>
                 ListView.builder(

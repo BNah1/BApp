@@ -28,4 +28,4 @@ class fTextCustom {
 }
 
 enum EnumSettings {settings , logout }
-enum EnumEdit {Crop , Canvas, Filters, Effect, Text, Frame, none }
+enum EnumEdit {Crop , Canvas, Filters, Effect, Text, Frame }

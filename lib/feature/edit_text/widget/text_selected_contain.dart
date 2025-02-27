@@ -1,6 +1,7 @@
-import 'package:bapp/UI/Widget/edit_selected_contain/text_selected_contain/text_color_contain.dart';
-import 'package:bapp/UI/Widget/edit_selected_contain/text_selected_contain/text_font_contain.dart';
-import 'package:bapp/UI/Widget/edit_selected_contain/text_selected_contain/text_setting_contain.dart';
+
+import 'package:bapp/feature/edit_text/widget/text_selected_contain/text_color_contain.dart';
+import 'package:bapp/feature/edit_text/widget/text_selected_contain/text_font_contain.dart';
+import 'package:bapp/feature/edit_text/widget/text_selected_contain/text_setting_contain.dart';
 import 'package:flutter/material.dart';
 
 class TextSelectedContain extends StatefulWidget {

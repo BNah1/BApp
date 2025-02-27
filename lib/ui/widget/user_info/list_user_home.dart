@@ -19,7 +19,7 @@ class _ListUserHomeState extends State<ListUserHome> {
     return FutureBuilder<List<User>>(
         future: getListUser(),
         builder: (context, snapshot) {
-          return CheckSnapshot(
+          return checkSnapshot(
               snapshot,
           (data)=> Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,7 +1,9 @@
-import 'package:bapp/UI/Screen/edit_screen.dart';
-import 'package:bapp/UI/Screen/select_image_screen.dart';
-import 'package:bapp/ui/screen/discovery_screen.dart';
+
 import 'package:flutter/material.dart';
+
+import '../UI/Screen/select_image_screen.dart';
+import '../feature/edit_image/screen/edit_screen.dart';
+import '../ui/screen/discovery_screen.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {

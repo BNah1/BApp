@@ -1,7 +1,8 @@
-import 'package:bapp/UI/Widget/slider_edit.dart';
 import 'package:bapp/constant/enum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../slider_edit.dart';
 
 class FilterSelectedContain extends StatefulWidget {
   const FilterSelectedContain({super.key});

@@ -1,4 +1,3 @@
-import 'package:bapp/UI/Widget/custom_button.dart';
 import 'package:bapp/UI/Widget/image_show/image_list_row.dart';
 import 'package:bapp/constant/constant.dart';
 import 'package:bapp/ui/screen/discovery_screen.dart';
@@ -40,24 +39,22 @@ class SelectImageScreen extends StatelessWidget {
                           flex: 1,
                           child: Padding(
                             padding: const EdgeInsets.only(right: 7),
-                            child: ButtonSelection(buttonHeight, buttonWidth, Icons.picture_in_picture_rounded,(){
+                            child: ButtonSelection(buttonHeight, buttonWidth, Icons.image_outlined,(){
                               pickImage(context);
                             }),
                           ),
                         ),
                         Flexible(
                           flex: 1,
-                          child: ButtonSelection(buttonHeight, buttonWidth, Icons.add,(){
+                          child: ButtonSelection(buttonHeight, buttonWidth, Icons.camera_alt_outlined,(){
                           }),
                         ),
                       ],
                     ),
                     const SizedBox(height: 7,),
-                    ButtonSelection(buttonHeight, buttonWidth*2, Icons.dashboard_customize_sharp, (){}),
-                    const SizedBox(height: 7,),
-                    Custombutton(text: "Discovery", color: fAppColor.colorButton, height: 30, tap: (){
+                    ButtonSelection(buttonHeight, buttonWidth*2, Icons.social_distance, (){
                       Navigator.pushNamed(context, DiscoveryScreen.name);
-                    })
+                    }),
                   ],),
 
                   //show hinh

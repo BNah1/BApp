@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:bapp/UI/Widget/edit_button_row.dart';
 import 'package:flutter/material.dart';
 
-import '../../constant/constant.dart';
+import '../../../constant/constant.dart';
 
 class EditScreen extends StatefulWidget {
   EditScreen({super.key});

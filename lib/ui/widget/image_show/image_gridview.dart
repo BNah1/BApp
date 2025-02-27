@@ -55,7 +55,7 @@ class _ImageGridviewState extends State<ImageGridview> {
           child: FutureBuilder<List<String>>(
               future: getImgage(),
               builder: (context, snapshot) {
-                return CheckSnapshot(
+                return checkSnapshot(
                     snapshot,
                     (data) => MasonryGridView.count(
                         mainAxisSpacing: 10,
