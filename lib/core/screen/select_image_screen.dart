@@ -1,8 +1,9 @@
-import 'package:bapp/UI/Widget/image_show/image_list_row.dart';
-import 'package:bapp/constant/constant.dart';
-import 'package:bapp/ui/screen/discovery_screen.dart';
+import 'package:bapp/core/constant/app_text.dart';
+import 'package:bapp/shared/ui/widget/image_show/image_list_row.dart';
 import 'package:bapp/utils/utils.dart';
 import 'package:flutter/material.dart';
+
+import '../../shared/ui/screen/discovery_screen.dart';
 
 class SelectImageScreen extends StatelessWidget {
   const SelectImageScreen({super.key});
@@ -18,7 +19,7 @@ class SelectImageScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page', style: fTextCustom.textTitle,),
+        title: Text('Home Page', style: AppTextStyle.textTitle,),
       ),
       body:  Padding(
         padding: const EdgeInsets.symmetric(horizontal: 7),
@@ -39,20 +40,21 @@ class SelectImageScreen extends StatelessWidget {
                           flex: 1,
                           child: Padding(
                             padding: const EdgeInsets.only(right: 7),
-                            child: ButtonSelection(buttonHeight, buttonWidth, Icons.image_outlined,(){
-                              pickImage(context);
+                            child: _buttonSelection(buttonHeight, buttonWidth, Icons.image_outlined,(){
+                              AppHelper.pickImage(context);
                             }),
                           ),
                         ),
                         Flexible(
                           flex: 1,
-                          child: ButtonSelection(buttonHeight, buttonWidth, Icons.camera_alt_outlined,(){
+                          child: _buttonSelection(buttonHeight, buttonWidth, Icons.camera_alt_outlined,(){
+                            AppHelper.pickImageEdit(context);
                           }),
                         ),
                       ],
                     ),
                     const SizedBox(height: 7,),
-                    ButtonSelection(buttonHeight, buttonWidth*2, Icons.social_distance, (){
+                    _buttonSelection(buttonHeight, buttonWidth*2, Icons.social_distance, (){
                       Navigator.pushNamed(context, DiscoveryScreen.name);
                     }),
                   ],),
@@ -71,7 +73,7 @@ class SelectImageScreen extends StatelessWidget {
   }
 }
 
-Widget  ButtonSelection(double h, double w, IconData icon, Function tap){
+Widget  _buttonSelection(double h, double w, IconData icon, Function tap){
   return InkWell(
     onTap: () => tap(),
     child: Container(

@@ -1,4 +1,4 @@
-import 'package:bapp/constant/enum.dart';
+import 'package:bapp/core/constant/enum.dart';
 import 'package:bapp/feature/edit_image/state/edit_image_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,9 +24,7 @@ class _SliderEditState extends ConsumerState<SliderEdit> {
             return ref.watch(editImageStateProvider).brightness;
           case EditImageEffectEnum.saturation:
             return ref.watch(editImageStateProvider).saturation;
-          default:
-            return 0;
-        }
+          }
   }
 
   void setValue(double value) {

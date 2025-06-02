@@ -1,8 +1,8 @@
+import 'package:bapp/core/constant/route.dart';
+import 'package:bapp/core/screen/select_image_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'Constant/route.dart';
-import 'UI/Screen/select_image_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));

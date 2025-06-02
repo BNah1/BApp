@@ -1,9 +1,13 @@
+
+import 'package:bapp/core/constant/app_color.dart';
+import 'package:bapp/core/constant/app_text.dart';
+import 'package:bapp/core/constant/enum.dart';
 import 'package:flutter/material.dart';
-import 'package:bapp/constant/constant.dart';
 
 import 'package:bapp/feature/edit_image/widget/edit_selected_contain/canvas_selected_contain.dart';
 import 'package:bapp/feature/edit_image/widget/edit_selected_contain/filter_selected_contain.dart';
 import 'package:bapp/feature/edit_text/widget/text_selected_contain.dart';
+
 
 class EditButtonRow extends StatefulWidget {
   const EditButtonRow({super.key});
@@ -13,7 +17,7 @@ class EditButtonRow extends StatefulWidget {
 }
 
 class _EditButtonRowState extends State<EditButtonRow> {
-  EnumEdit selectedEdit = EnumEdit.Crop;
+  EnumEdit selectedEdit = EnumEdit.crop;
   final List<EnumEdit> listEnum = EnumEdit.values;
 
   void _navigateEdit(bool isNext){
@@ -45,7 +49,7 @@ class _EditButtonRowState extends State<EditButtonRow> {
                     });
                   },
                   child: const Icon(Icons.turn_left_outlined,size: 30,)),
-              Text(selectedEdit.name,style: fTextCustom.textTitle,),
+              Text(selectedEdit.name,style: AppTextStyle.textTitle,),
               InkWell(
                   onTap: (){
                     setState(() {
@@ -64,12 +68,12 @@ class _EditButtonRowState extends State<EditButtonRow> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _Button('Crop', Icons.crop,EnumEdit.Crop ),
-              _Button('Canvas', Icons.pets_outlined,EnumEdit.Canvas),
-              _Button('Filters', Icons.incomplete_circle,EnumEdit.Filters),
-              _Button('Effect', Icons.brightness_low_outlined,EnumEdit.Effect),
-              _Button('Text', Icons.text_fields_outlined,EnumEdit.Text),
-              _Button('Frame', Icons.filter_frames,EnumEdit.Frame),
+              _button('Crop', Icons.crop,EnumEdit.crop ),
+              _button('Canvas', Icons.pets_outlined,EnumEdit.canvas),
+              _button('Filters', Icons.incomplete_circle,EnumEdit.filters),
+              _button('Effect', Icons.brightness_low_outlined,EnumEdit.effect),
+              _button('Text', Icons.text_fields_outlined,EnumEdit.text),
+              _button('Frame', Icons.filter_frames,EnumEdit.frame),
             ],
           ),
         ],
@@ -77,7 +81,7 @@ class _EditButtonRowState extends State<EditButtonRow> {
     );
   }
 
-  void _ChangeWidget(EnumEdit edit){
+  void _changeWidget(EnumEdit edit){
     setState(() {
       selectedEdit = edit;
     });
@@ -85,32 +89,30 @@ class _EditButtonRowState extends State<EditButtonRow> {
 
   Widget getWidgetSelected(EnumEdit select){
     switch(select){
-      case EnumEdit.Crop:
+      case EnumEdit.crop:
         return  const Text('crop',);
-      case EnumEdit.Canvas:
+      case EnumEdit.canvas:
         return const CanvasSelectedContain();
-      case EnumEdit.Filters:
+      case EnumEdit.filters:
         return const FilterSelectedContain();
-      case EnumEdit.Effect:
+      case EnumEdit.effect:
         return const Text('effect',);
-      case EnumEdit.Text:
+      case EnumEdit.text:
         return const TextSelectedContain();
-      case EnumEdit.Frame:
+      case EnumEdit.frame:
         return const Text('frame',);
-      default :
-        return const SizedBox.shrink();
-    }
+      }
   }
 
-  Widget _Button(String text, IconData icon, EnumEdit selected){
+  Widget _button(String text, IconData icon, EnumEdit selected){
     return InkWell(
       onTap: () => {
-        _ChangeWidget(selected)
+        _changeWidget(selected)
       },
       child: Column(
         children: [
-          Icon(icon,color: selected == selectedEdit ? Colors.red : fAppColor.black,size: 30,),
-          Text(text,style: TextStyle(color: selected == selectedEdit ? Colors.red : fAppColor.black),),
+          Icon(icon,color: selected == selectedEdit ? Colors.red : AppColors.black,size: 30,),
+          Text(text,style: TextStyle(color: selected == selectedEdit ? Colors.red : AppColors.black),),
         ],
       ),
     );

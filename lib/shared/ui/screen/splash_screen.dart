@@ -1,7 +1,8 @@
-import 'package:bapp/UI/Screen/select_image_screen.dart';
-import 'package:bapp/UI/Widget/custom_button.dart';
+import 'package:bapp/core/constant/app_color.dart';
+import 'package:bapp/core/constant/constant.dart';
+import 'package:bapp/core/screen/select_image_screen.dart';
+import 'package:bapp/shared/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
-import '../../constant/constant.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -33,14 +34,13 @@ class SplashScreen extends StatelessWidget {
               )
             ]
           ),)),
-
           Positioned(
             left: 40,
             right: 40,
             bottom: 70,
-            child: Custombutton(
+            child: CustomButton(
                 text: "Started",
-                color: fAppColor.colorButton,
+                color: AppColors.colorButton,
                 height: 50,
                 tap: () {
                   Navigator.pushReplacementNamed(context, SelectImageScreen.name);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-class Custombutton extends StatelessWidget {
-  const Custombutton({super.key, required this.text, required this.color, required this.height, required this.tap});
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key, required this.text, required this.color, required this.height, required this.tap});
   final String text;
   final Color color;
   final double height;

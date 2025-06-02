@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TextColorContain extends StatelessWidget {
@@ -10,20 +9,20 @@ class TextColorContain extends StatelessWidget {
       height: 50,
       child: Row(
         children: [
-          _ColorContain(Colors.grey, (){}),
-          _ColorContain(Colors.red, (){}),
-          _ColorContain(Colors.blue, (){}),
-          _ColorContain(Colors.green, (){}),
-          _ColorContain(Colors.lime, (){}),
-          _ColorContain(Colors.lightBlue, (){}),
-          _ColorContain(Colors.greenAccent, (){}),
-          _ColorContain(Colors.redAccent, (){}),
+          _colorContain(Colors.grey, (){}),
+          _colorContain(Colors.red, (){}),
+          _colorContain(Colors.blue, (){}),
+          _colorContain(Colors.green, (){}),
+          _colorContain(Colors.lime, (){}),
+          _colorContain(Colors.lightBlue, (){}),
+          _colorContain(Colors.greenAccent, (){}),
+          _colorContain(Colors.redAccent, (){}),
         ],
       ),
     );
   }
 
-  Widget _ColorContain(Color color, Function tap){
+  Widget _colorContain(Color color, Function tap){
     return Expanded(
       child: InkWell(
         onTap: () => tap(),

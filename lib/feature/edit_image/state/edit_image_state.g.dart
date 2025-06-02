@@ -6,7 +6,7 @@ part of 'edit_image_state.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$editImageStateHash() => r'68d755fa9c32ac00def82c3dd978e2ee9aba0e3f';
+String _$editImageStateHash() => r'c7440a1654102b7cd303c56128ab1b51f0bb13d1';
 
 /// See also [EditImageState].
 @ProviderFor(EditImageState)

@@ -1,9 +1,9 @@
+import 'package:bapp/core/constant/app_text.dart';
+import 'package:bapp/core/constant/enum.dart';
+import 'package:bapp/core/constant/mock_data.dart';
 import 'package:bapp/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-import '../../../constant/data_test.dart';
-import '../../../constant/constant.dart';
 
 class ImageGridview extends StatefulWidget {
   const ImageGridview({super.key});
@@ -23,17 +23,17 @@ class _ImageGridviewState extends State<ImageGridview> {
           children: [
             Text(
               "For you",
-              style: fTextCustom.textTitle,
+              style: AppTextStyle.textTitle,
             ),
             PopupMenuButton<EnumSettings>(
               icon: const Icon(Icons.menu),
                 onSelected: (EnumSettings result){
                   switch(result){
                     case EnumSettings.logout:
-                      print('Logout');
+                      debugPrint('Logout');
                       break;
                     case EnumSettings.settings:
-                      print('setting');
+                      debugPrint('setting');
                       break;
                   }
                 },
@@ -53,9 +53,9 @@ class _ImageGridviewState extends State<ImageGridview> {
         ),
         Expanded(
           child: FutureBuilder<List<String>>(
-              future: getImgage(),
+              future: getImage(),
               builder: (context, snapshot) {
-                return checkSnapshot(
+                return AppHelper.checkSnapshot(
                     snapshot,
                     (data) => MasonryGridView.count(
                         mainAxisSpacing: 10,

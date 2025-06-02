@@ -1,8 +1,8 @@
-import 'package:bapp/UI/Screen/select_image_screen.dart';
-import 'package:bapp/UI/Widget/user_info/list_user_home.dart';
+import 'package:bapp/core/constant/app_text.dart';
+import 'package:bapp/core/screen/select_image_screen.dart';
+import 'package:bapp/shared/ui/widget/user_info/list_user_home.dart';
 import 'package:flutter/material.dart';
-import '../../constant/constant.dart';
-import '../Widget/image_show/image_gridview.dart';
+import 'package:bapp/shared/ui/Widget/image_show/image_gridview.dart';
 
 class DiscoveryScreen extends StatelessWidget {
   const DiscoveryScreen({super.key});
@@ -12,16 +12,16 @@ class DiscoveryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Discovery', style: fTextCustom.textTitle,),
+        title: Text('Discovery', style: AppTextStyle.textTitle,),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(
           children: [
-            ListUserHome(),
+            const ListUserHome(),
             Expanded(child: Stack(
               children: [
-                ImageGridview(),
+                const ImageGridview(),
                 Positioned(
                   bottom: 50,
                   right: 50,

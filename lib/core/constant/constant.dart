@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class ImageUrl {
   static String plashImage =
@@ -13,19 +12,8 @@ class ImageUrl {
       "https://anhnail.com/wp-content/uploads/2024/11/gaara-naruto-4k.jpg";
 }
 
-class fAppColor {
-  static const Color black = Colors.black;
-  static const Color white = Colors.white;
-  static const Color colorButton = Colors.lightBlueAccent;
-}
 
-class fTextCustom {
-  static TextStyle textTitle = const TextStyle(
-    color: fAppColor.black,
-    fontWeight: FontWeight.bold,
-    fontSize: 20,
-  );
-}
 
-enum EnumSettings {settings , logout }
-enum EnumEdit {Crop , Canvas, Filters, Effect, Text, Frame }
+
+
+

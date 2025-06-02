@@ -2,7 +2,7 @@ class Picture {
   final double brightness;
   final double saturation;
 
-  Picture({this.brightness = 0, this.saturation = 0}); // trang den
+  Picture({this.brightness = 0, this.saturation = 0});
 
   Picture copyWith({double? brightness, double? saturation}) {
     return Picture(

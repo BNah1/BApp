@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TextFontContain extends StatefulWidget {
@@ -18,17 +17,17 @@ class _TextFontContainState extends State<TextFontContain> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _FontContain("Robota", FontStyle.italic, _EnumSelected.robota, () {}),
-          _FontContain(
+          _fontContain("Robota", FontStyle.italic, _EnumSelected.robota, () {}),
+          _fontContain(
               "Trade Win", FontStyle.italic, _EnumSelected.tradewin, () {}),
-          _FontContain("Basic", FontStyle.normal, _EnumSelected.basic1, () {}),
-          _FontContain("Poppin", FontStyle.italic, _EnumSelected.basic2, () {}),
+          _fontContain("Basic", FontStyle.normal, _EnumSelected.basic1, () {}),
+          _fontContain("Poppin", FontStyle.italic, _EnumSelected.basic2, () {}),
         ],
       ),
     );
   }
 
-  Widget _FontContain(
+  Widget _fontContain(
     String text,
     FontStyle style,
     _EnumSelected selected,

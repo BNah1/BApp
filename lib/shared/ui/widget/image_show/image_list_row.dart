@@ -1,8 +1,9 @@
-import 'package:bapp/Constant/data_test.dart';
+
+import 'package:bapp/core/constant/app_text.dart';
+import 'package:bapp/core/constant/mock_data.dart';
 import 'package:bapp/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constant/constant.dart';
 
 class ImageListRow extends StatefulWidget {
   const ImageListRow({super.key});
@@ -22,7 +23,7 @@ class _ImageGridviewState extends State<ImageListRow> {
           children: [
             Text(
               "Recent Creation",
-              style: fTextCustom.textTitle,
+              style: AppTextStyle.textTitle,
             ),
             const Text('See all >', style: TextStyle(color: Colors.red),)
           ]
@@ -30,9 +31,9 @@ class _ImageGridviewState extends State<ImageListRow> {
         SizedBox(
           height: 150,
           child: FutureBuilder<List<String>>(
-              future: getImgage(),
+              future: getImage(),
               builder: (context, snapshot) {
-                return checkSnapshot(
+                return AppHelper.checkSnapshot(
                     snapshot,
                         (data) =>
                 ListView.builder(

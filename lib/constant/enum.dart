@@ -1,4 +1,0 @@
-enum EditImageEffectEnum {
-  brightness,
-  saturation,
-}

@@ -1,5 +1,6 @@
-import 'package:bapp/Constant/constant.dart';
 import 'package:bapp/model/user.dart';
+
+import 'constant.dart';
 
 List<User> listUserTest = [
   User("aaa", "bbb", ImageUrl.plashImage, 1),
@@ -42,11 +43,11 @@ List<String> listImage = [
 
 
 Future<List<User>> getListUser() async {
-  await Future.delayed(Duration(seconds: 1));
+  await Future.delayed(const Duration(seconds: 1));
   return listUserTest;
 }
 
-Future<List<String>> getImgage() async {
-  await Future.delayed(Duration(seconds: 1));
+Future<List<String>> getImage() async {
+  await Future.delayed(const Duration(seconds: 1));
   return listImage;
 }

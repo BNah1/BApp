@@ -11,7 +11,7 @@ class TextSelectedContain extends StatefulWidget {
   State<TextSelectedContain> createState() => _TextSelectedContainState();
 }
 
-  _EnumSelected selectedEnum = _EnumSelected.text;
+  _EnumSelected _selectedEnum = _EnumSelected.text;
 
 
 class _TextSelectedContainState extends State<TextSelectedContain> {
@@ -22,20 +22,19 @@ class _TextSelectedContainState extends State<TextSelectedContain> {
       children: [
 
 
-        //
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _Button(Icons.invert_colors_on_sharp,(){}, _EnumSelected.color),
-            _Button(Icons.text_fields_rounded,(){}, _EnumSelected.text),
-            _Button(Icons.menu_open_outlined,(){}, _EnumSelected.setting),
+            _button(Icons.invert_colors_on_sharp,(){}, _EnumSelected.color),
+            _button(Icons.text_fields_rounded,(){}, _EnumSelected.text),
+            _button(Icons.menu_open_outlined,(){}, _EnumSelected.setting),
           ],
         ),
 
         //
         const Spacer(),
         // lay contain sau khi chon enum
-        _GetContain(selectedEnum),
+        _getContain(_selectedEnum),
         const Spacer(),
 
 
@@ -43,7 +42,7 @@ class _TextSelectedContainState extends State<TextSelectedContain> {
     );
   }
 
-  Widget _GetContain(_EnumSelected result){
+  Widget _getContain(_EnumSelected result){
     switch(result){
       case _EnumSelected.text:
         return const TextFontContain();
@@ -51,17 +50,15 @@ class _TextSelectedContainState extends State<TextSelectedContain> {
         return const TextColorContain();
       case _EnumSelected.setting:
         return const TextSettingContain();
-      default:
-        return Container();
-    }
+      }
   }
 
-  Widget _Button(IconData icon, Function tap, _EnumSelected selected){
-    Color color = selected == selectedEnum ? Colors.red : Colors.black ;
+  Widget _button(IconData icon, Function tap, _EnumSelected selected){
+    Color color = selected == _selectedEnum ? Colors.red : Colors.black ;
     return InkWell(
       onTap: () {
         setState(() {
-          selectedEnum = selected;
+          _selectedEnum = selected;
         });
         tap();
       },

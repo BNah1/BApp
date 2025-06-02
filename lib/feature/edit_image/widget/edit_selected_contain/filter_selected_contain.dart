@@ -1,4 +1,4 @@
-import 'package:bapp/constant/enum.dart';
+import 'package:bapp/core/constant/enum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

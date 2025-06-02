@@ -1,12 +1,13 @@
 import 'dart:io';
 
-import 'package:bapp/UI/Widget/edit_button_row.dart';
+import 'package:bapp/core/constant/app_string.dart';
+import 'package:bapp/core/constant/app_text.dart';
+import 'package:bapp/shared/ui/widget/edit_button_row.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constant/constant.dart';
 
 class EditScreen extends StatefulWidget {
-  EditScreen({super.key});
+  const EditScreen({super.key});
   static String name = '/filter';
 
   @override
@@ -35,7 +36,7 @@ class _EditScreen extends State<EditScreen> {
             },
             child: Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: Text('X',style: fTextCustom.textTitle,))),
+                child: Text('X',style: AppTextStyle.textTitle,))),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -43,8 +44,8 @@ class _EditScreen extends State<EditScreen> {
           children: [
             Expanded(child:
             imageFile.existsSync()
-                ? Image.file(imageFile,fit: BoxFit.cover) // Hiển thị ảnh
-                : const Text("Không có ảnh nào được chọn"),),
+                ? _editImageContain() // Hiển thị ảnh
+                : Text(AppString.errorUnSelectedImage),),
             const EditButtonRow(),
             const SizedBox(height: 30,),
           ],
@@ -52,4 +53,18 @@ class _EditScreen extends State<EditScreen> {
       ),
     );
   }
+
+
+  Widget _editImageContain(){
+  return Stack(
+      children: [
+        Image.file(imageFile,fit: BoxFit.cover),
+        const Positioned(child: Text('data'))
+      ]);
+  }
+
+
+
 }
+
+

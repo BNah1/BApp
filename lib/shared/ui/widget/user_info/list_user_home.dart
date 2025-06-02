@@ -1,10 +1,10 @@
-import 'package:bapp/UI/Widget/user_info/user_avatar_circle.dart';
+import 'package:bapp/core/constant/app_text.dart';
+import 'package:bapp/core/constant/mock_data.dart';
+import 'package:bapp/model/user.dart';
+import 'package:bapp/shared/ui/widget/user_info/user_avatar_circle.dart';
 import 'package:bapp/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../Constant/data_test.dart';
-import '../../../constant/constant.dart';
-import '../../../model/user.dart';
 
 class ListUserHome extends StatefulWidget {
   const ListUserHome({super.key});
@@ -19,14 +19,14 @@ class _ListUserHomeState extends State<ListUserHome> {
     return FutureBuilder<List<User>>(
         future: getListUser(),
         builder: (context, snapshot) {
-          return checkSnapshot(
+          return AppHelper.checkSnapshot(
               snapshot,
           (data)=> Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Dicovery',
-                style: fTextCustom.textTitle,
+                style: AppTextStyle.textTitle,
               ),
               // Avatar
               SizedBox(
