@@ -1,6 +1,9 @@
 import 'dart:io';
 
+import 'package:bapp/core/config/di.dart';
+import 'package:bapp/model/image/image_model.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';import 'package:image_picker/image_picker.dart';
 
 import 'package:bapp/feature/edit_image/screen/edit_screen.dart';
@@ -10,7 +13,9 @@ import 'package:pro_image_editor/features/main_editor/main_editor.dart';
 
 
 class AppHelper{
-static Widget checkSnapshot<T>(
+  static final _imageBox = getIt<Box<ImageModel>>();
+
+  static Widget checkSnapshot<T>(
     AsyncSnapshot<List<T>> snapshot, Widget Function(List<T>) builder) {
   if (snapshot.connectionState == ConnectionState.waiting) {
     return const Center(child: CircularProgressIndicator());
@@ -59,11 +64,16 @@ static Future<void> pickImageEdit(BuildContext context) async {
               }
             }
 
+            final ImageModel imageModel = ImageModel(path: pickedFile.path, name: pickedFile.name, createdAt: DateTime.now());
+
+
             final result = await ImageGallerySaver.saveImage(
               bytes,
-              name: 'Bonah_APP_${pickedFile.name}_${DateTime.now().millisecondsSinceEpoch}',
+              name: 'Bonah_APP_${imageModel.path}_${imageModel.createdAt}',
               quality: 100,
             );
+
+            await _imageBox.add(imageModel);
 
             debugPrint('Save result: $result');
             if (context.mounted) {
