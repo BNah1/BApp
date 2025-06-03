@@ -1,14 +1,30 @@
 import 'package:bapp/core/constant/app_text.dart';
-import 'package:bapp/shared/ui/widget/image_show/image_list_row.dart';
-import 'package:bapp/utils/utils.dart';
+import 'package:bapp/core/constant/route.dart';
+import 'package:bapp/core/screen/widget/image_show/image_list_row.dart';
+import 'package:bapp/core/utils/image_helper.dart';
+import 'package:bapp/feature/recently_edit_image/state/recently_edit_image_viewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../shared/ui/screen/discovery_screen.dart';
 
-class SelectImageScreen extends StatelessWidget {
+class SelectImageScreen extends ConsumerStatefulWidget {
   const SelectImageScreen({super.key});
 
-  static String name = '/select_image';
+  @override
+  ConsumerState<SelectImageScreen> createState() => _SelectImageScreenState();
+}
+
+class _SelectImageScreenState extends ConsumerState<SelectImageScreen> {
+
+
+  @override
+  void initState() {
+    Future.microtask(() {
+      ref.read(recentlyEditImageViewModel.notifier).init();
+    });
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,21 +57,21 @@ class SelectImageScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(right: 7),
                             child: _buttonSelection(buttonHeight, buttonWidth, Icons.image_outlined,(){
-                              AppHelper.pickImage(context);
+                              ImageHelper.pickImage(context);
                             }),
                           ),
                         ),
                         Flexible(
                           flex: 1,
                           child: _buttonSelection(buttonHeight, buttonWidth, Icons.camera_alt_outlined,(){
-                            AppHelper.pickImageEdit(context);
+                            ImageHelper.pickImageEdit(context,ref);
                           }),
                         ),
                       ],
                     ),
                     const SizedBox(height: 7,),
                     _buttonSelection(buttonHeight, buttonWidth*2, Icons.social_distance, (){
-                      Navigator.pushNamed(context, DiscoveryScreen.name);
+                      Navigator.pushNamed(context, Routes.discoveryPath);
                     }),
                   ],),
 

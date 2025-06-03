@@ -1,8 +1,8 @@
 import 'package:bapp/core/constant/app_text.dart';
 import 'package:bapp/core/constant/mock_data.dart';
+import 'package:bapp/core/screen/widget/user_info/user_avatar_circle.dart';
+import 'package:bapp/core/utils/image_helper.dart';
 import 'package:bapp/model/user.dart';
-import 'package:bapp/shared/ui/widget/user_info/user_avatar_circle.dart';
-import 'package:bapp/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +19,7 @@ class _ListUserHomeState extends State<ListUserHome> {
     return FutureBuilder<List<User>>(
         future: getListUser(),
         builder: (context, snapshot) {
-          return AppHelper.checkSnapshot(
+          return ImageHelper.checkSnapshot(
               snapshot,
           (data)=> Column(
             crossAxisAlignment: CrossAxisAlignment.start,

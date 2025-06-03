@@ -2,13 +2,12 @@ import 'dart:io';
 
 import 'package:bapp/core/constant/app_string.dart';
 import 'package:bapp/core/constant/app_text.dart';
-import 'package:bapp/shared/ui/widget/edit_button_row.dart';
+import 'package:bapp/core/screen/widget/edit_button_row.dart';
 import 'package:flutter/material.dart';
 
 
 class EditScreen extends StatefulWidget {
   const EditScreen({super.key});
-  static String name = '/filter';
 
   @override
   State<EditScreen> createState() => _EditScreen();

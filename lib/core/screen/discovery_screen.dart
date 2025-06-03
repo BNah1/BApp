@@ -1,12 +1,11 @@
 import 'package:bapp/core/constant/app_text.dart';
-import 'package:bapp/core/screen/select_image_screen.dart';
-import 'package:bapp/shared/ui/widget/user_info/list_user_home.dart';
+import 'package:bapp/core/constant/route.dart';
+import 'package:bapp/core/screen/widget/image_show/image_gridview.dart';
+import 'package:bapp/core/screen/widget/user_info/list_user_home.dart';
 import 'package:flutter/material.dart';
-import 'package:bapp/shared/ui/Widget/image_show/image_gridview.dart';
 
 class DiscoveryScreen extends StatelessWidget {
   const DiscoveryScreen({super.key});
-  static String name = "/discovery";
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class DiscoveryScreen extends StatelessWidget {
                   right: 50,
                   child: InkWell(
                     onTap: (){
-                      Navigator.pushNamed(context, SelectImageScreen.name);
+                      Navigator.pushNamed(context, Routes.selectImagePath);
                     },
                     child:Container(
                       width: 60,

@@ -1,18 +1,21 @@
 import 'dart:io';
 
 import 'package:bapp/core/config/di.dart';
+import 'package:bapp/core/constant/route.dart';
+import 'package:bapp/feature/recently_edit_image/state/recently_edit_image_viewmodel.dart';
 import 'package:bapp/model/image/image_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';import 'package:image_picker/image_picker.dart';
 
-import 'package:bapp/feature/edit_image/screen/edit_screen.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pro_image_editor/core/models/editor_callbacks/pro_image_editor_callbacks.dart';
 import 'package:pro_image_editor/features/main_editor/main_editor.dart';
 
 
-class AppHelper{
+class ImageHelper{
   static final _imageBox = getIt<Box<ImageModel>>();
 
   static Widget checkSnapshot<T>(
@@ -36,14 +39,14 @@ static Future<void> pickImage(BuildContext context) async {
     if(context.mounted){
       Navigator.pushNamed(
         context,
-        EditScreen.name,
+        Routes.editPath,
         arguments: pickedFile.path,
       );
     }
   }
 }
 
-static Future<void> pickImageEdit(BuildContext context) async {
+static Future<void> pickImageEdit(BuildContext context , WidgetRef ref) async {
   final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
   final String path = pickedFile?.path ?? '';
   debugPrint(pickedFile?.path);
@@ -64,8 +67,11 @@ static Future<void> pickImageEdit(BuildContext context) async {
               }
             }
 
-            final ImageModel imageModel = ImageModel(path: pickedFile.path, name: pickedFile.name, createdAt: DateTime.now());
+            final directory = await getApplicationDocumentsDirectory();
+            final String savePath = '${directory.path}/Bonah_${DateTime.now().millisecondsSinceEpoch}.jpg';
+            final file = await File(savePath).writeAsBytes(bytes);
 
+            final ImageModel imageModel = ImageModel(path: savePath, name: pickedFile.name, createdAt: DateTime.now());
 
             final result = await ImageGallerySaver.saveImage(
               bytes,
@@ -73,7 +79,11 @@ static Future<void> pickImageEdit(BuildContext context) async {
               quality: 100,
             );
 
-            await _imageBox.add(imageModel);
+
+            final exists = await file.exists();
+            debugPrint('File exists: $exists, path: $savePath');
+
+            await ref.read(recentlyEditImageViewModel.notifier).addImage(imageModel);
 
             debugPrint('Save result: $result');
             if (context.mounted) {

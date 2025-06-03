@@ -1,7 +1,7 @@
 import 'package:bapp/core/constant/app_color.dart';
 import 'package:bapp/core/constant/constant.dart';
-import 'package:bapp/core/screen/select_image_screen.dart';
-import 'package:bapp/shared/ui/widget/custom_button.dart';
+import 'package:bapp/core/constant/route.dart';
+import 'package:bapp/core/screen/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -43,7 +43,7 @@ class SplashScreen extends StatelessWidget {
                 color: AppColors.colorButton,
                 height: 50,
                 tap: () {
-                  Navigator.pushReplacementNamed(context, SelectImageScreen.name);
+                  Navigator.pushReplacementNamed(context, Routes.selectImagePath);
                 }),
           )
         ],

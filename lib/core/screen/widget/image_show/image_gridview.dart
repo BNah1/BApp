@@ -1,7 +1,7 @@
 import 'package:bapp/core/constant/app_text.dart';
 import 'package:bapp/core/constant/enum.dart';
 import 'package:bapp/core/constant/mock_data.dart';
-import 'package:bapp/utils/utils.dart';
+import 'package:bapp/core/utils/image_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -55,7 +55,7 @@ class _ImageGridviewState extends State<ImageGridview> {
           child: FutureBuilder<List<String>>(
               future: getImage(),
               builder: (context, snapshot) {
-                return AppHelper.checkSnapshot(
+                return ImageHelper.checkSnapshot(
                     snapshot,
                     (data) => MasonryGridView.count(
                         mainAxisSpacing: 10,
